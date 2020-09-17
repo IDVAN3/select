@@ -22,6 +22,7 @@ $(document).ready(function() {
                 currentText = select.querySelector('.select__current');
             currentText.innerText = text;
             select.classList.remove('is-active');
+            console.log(container.length)
 
         }
 
@@ -29,23 +30,13 @@ $(document).ready(function() {
 
 
     let container = $(".select__body");
-    let item = $(".select__item");
     let header = $(".select__header");
     
     $(document).mouseup(function (e) {
-        
-        if (container.has(e.target).length === 0){
-            container.hide();
-        }
-        item.click(function() {
-            console.log('no');
-            container.hide(); 
-        });
-        header.click(function() {
-            container.show();
-            console.log('yes'); 
-        });
-                 
+        select = $('.select');
+        if (container.has(e.target).length === 0 &&  header.has(e.target).length === 0){
+            select.removeClass('is-active');
+        }       
     });
 
     select();
